@@ -1,4 +1,5 @@
 import ReactDotMemo from "./reactDotMemo";
+import { UseCallBackDemo } from "./usecallback";
 import UseMemoExample from "./usememoExample";
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
   return (
     <>
       {/* <UseMemoExample /> */}
-      <ReactDotMemo />
+      {/* <ReactDotMemo /> */}
+      <UseCallBackDemo />
     </>
   );
 }
