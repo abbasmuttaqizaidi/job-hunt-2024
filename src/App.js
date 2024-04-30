@@ -1,17 +1,27 @@
-import ReactDotMemo from "./reactDotMemo";
-import { UseCallBackDemo } from "./usecallback";
-import UseMemoExample from "./usememoExample";
+import { Provider } from "react-redux";
+import Counter from "./reduxTraditional";
+import { store } from "./reduxTraditional/store";
+
 
 function App() {
 
 
   return (
     <>
-      {/* <UseMemoExample /> */}
-      {/* <ReactDotMemo /> */}
-      <UseCallBackDemo />
+      <ReduxTraditional />
     </>
   );
 }
 
 export default App;
+
+
+//Redux traditional
+
+function ReduxTraditional() {
+
+  
+  return <Provider store={store}>
+    <Counter />
+  </Provider>
+}
