@@ -4,6 +4,7 @@ import { store } from "./reduxTraditional/store";
 import { ToolkitCounter } from "./reduxtoolkit";
 import { toolkitStore } from "./reduxtoolkit/store";
 import { UseReducerDemo } from "./usereducer";
+import { SimpleUseReducer } from "./simplesuereducer";
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <>
       {/* <ReduxTraditional /> */}
       {/* <ReduxToolkit /> */}
-      <UseReducerGateway />
+      {/* <UseReducerGateway /> */}
+      <SimpleUseReducerGateway />
     </>
   );
 }
@@ -44,4 +46,11 @@ function UseReducerGateway() {
       <UseReducerDemo />
     </>
   );
+}
+
+function SimpleUseReducerGateway() {
+
+  return (
+    <SimpleUseReducer />
+  )
 }
