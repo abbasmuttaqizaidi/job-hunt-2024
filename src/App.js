@@ -3,6 +3,7 @@ import Counter from "./reduxTraditional";
 import { store } from "./reduxTraditional/store";
 import { ToolkitCounter } from "./reduxtoolkit";
 import { toolkitStore } from "./reduxtoolkit/store";
+import { UseReducerDemo } from "./usereducer";
 
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
       {/* <ReduxTraditional /> */}
-      <ReduxToolkit />
+      {/* <ReduxToolkit /> */}
+      <UseReducerGateway />
     </>
   );
 }
@@ -34,4 +36,12 @@ function ReduxToolkit() {
   return <Provider store={toolkitStore}>
     <ToolkitCounter />
   </Provider>
+}
+
+function UseReducerGateway() {
+  return (
+    <>
+      <UseReducerDemo />
+    </>
+  );
 }
