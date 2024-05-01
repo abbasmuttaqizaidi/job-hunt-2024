@@ -5,6 +5,7 @@ import { ToolkitCounter } from "./reduxtoolkit";
 import { toolkitStore } from "./reduxtoolkit/store";
 import { UseReducerDemo } from "./usereducer";
 import { SimpleUseReducer } from "./simplesuereducer";
+import { AccordionGateway } from "./customHTMLElements/accordion";
 
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
       {/* <ReduxTraditional /> */}
       {/* <ReduxToolkit /> */}
       {/* <UseReducerGateway /> */}
-      <SimpleUseReducerGateway />
+      {/* <SimpleUseReducerGateway /> */}
+
+      <AccordionGateway />
     </>
   );
 }
