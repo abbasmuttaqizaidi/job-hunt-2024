@@ -7,6 +7,7 @@ import { UseReducerDemo } from "./usereducer";
 import { SimpleUseReducer } from "./simplesuereducer";
 import { AccordionGateway } from "./customHTMLElements/accordion";
 import { ThunkWrapper as ThunkWithRegularRedux } from "./redux-thunk/reduxRegular/wrapper";
+import { ThunkWithToolkitWrapper } from "./redux-thunk/reduxToolkit/wrapper";
 
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
 
       {/* <AccordionGateway /> */}
 
-      <ThunkWithToolkitGateway />
+      {/* <ThunkWithRegularReduxGateway /> */}
+
+      <ThunkWithToolkitReduxGateway />
     </>
   );
 }
@@ -61,6 +64,10 @@ function SimpleUseReducerGateway() {
   )
 }
 
-function ThunkWithToolkitGateway() {
+function ThunkWithRegularReduxGateway() {
   return <ThunkWithRegularRedux />
+}
+
+function ThunkWithToolkitReduxGateway() {
+  return <ThunkWithToolkitWrapper />
 }
