@@ -8,6 +8,7 @@ import { SimpleUseReducer } from "./simplesuereducer";
 import { AccordionGateway } from "./customHTMLElements/accordion";
 import { ThunkWrapper as ThunkWithRegularRedux } from "./redux-thunk/reduxRegular/wrapper";
 import { ThunkWithToolkitWrapper } from "./redux-thunk/reduxToolkit/wrapper";
+import { ThunkWithCreateAsyncWrapper } from "./redux-thunk/thunk-with-createAsync/wrapper";
 
 
 function App() {
@@ -24,7 +25,9 @@ function App() {
 
       {/* <ThunkWithRegularReduxGateway /> */}
 
-      <ThunkWithToolkitReduxGateway />
+      {/* <ThunkWithToolkitReduxGateway /> */}
+
+      <ThunkWithToolkitReduxAndCreateAsyncGateway />
     </>
   );
 }
@@ -70,4 +73,10 @@ function ThunkWithRegularReduxGateway() {
 
 function ThunkWithToolkitReduxGateway() {
   return <ThunkWithToolkitWrapper />
+}
+
+function ThunkWithToolkitReduxAndCreateAsyncGateway() {
+  return (
+    <ThunkWithCreateAsyncWrapper />
+  )
 }
