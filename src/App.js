@@ -1,3 +1,4 @@
+import { ForwardRefsWrapper } from "./forwardrefs/wrapper";
 import ReactDotMemo from "./reactDotMemo";
 import { UseCallBackDemo } from "./usecallback";
 import UseMemoExample from "./usememoExample";
@@ -9,7 +10,8 @@ function App() {
     <>
       {/* <UseMemoExample /> */}
       {/* <ReactDotMemo /> */}
-      <UseCallBackDemo />
+      {/* <UseCallBackDemo /> */}
+      <ForwardRefsWrapper />
     </>
   );
 }
