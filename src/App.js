@@ -9,6 +9,7 @@ import { AccordionGateway } from "./customHTMLElements/accordion";
 import { ThunkWrapper as ThunkWithRegularRedux } from "./redux-thunk/reduxRegular/wrapper";
 import { ThunkWithToolkitWrapper } from "./redux-thunk/reduxToolkit/wrapper";
 import { ThunkWithCreateAsyncWrapper } from "./redux-thunk/thunk-with-createAsync/wrapper";
+import { SagaRegularReduxWrapper } from "./redux-saga/redux-regular/wrapper";
 
 
 function App() {
@@ -27,7 +28,11 @@ function App() {
 
       {/* <ThunkWithToolkitReduxGateway /> */}
 
-      <ThunkWithToolkitReduxAndCreateAsyncGateway />
+      {/* <ThunkWithToolkitReduxAndCreateAsyncGateway />  */}
+
+      <SagaWithRegularRedux />
+
+
     </>
   );
 }
@@ -78,5 +83,11 @@ function ThunkWithToolkitReduxGateway() {
 function ThunkWithToolkitReduxAndCreateAsyncGateway() {
   return (
     <ThunkWithCreateAsyncWrapper />
+  )
+}
+
+function SagaWithRegularRedux() {
+  return (
+    <SagaRegularReduxWrapper />
   )
 }
