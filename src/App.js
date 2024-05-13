@@ -1,85 +1,35 @@
-import { ForwardRefsWrapper } from "./forwardrefs/wrapper";
-import { Provider } from "react-redux";
-import Counter from "./reduxTraditional";
-import { store } from "./reduxTraditional/store";
-import { ToolkitCounter } from "./reduxtoolkit";
-import { toolkitStore } from "./reduxtoolkit/store";
-import { UseReducerDemo } from "./usereducer";
-import { SimpleUseReducer } from "./simplesuereducer";
-import { AccordionGateway } from "./customHTMLElements/accordion";
-import { ThunkWrapper as ThunkWithRegularRedux } from "./redux-thunk/reduxRegular/wrapper";
-import { ThunkWithToolkitWrapper } from "./redux-thunk/reduxToolkit/wrapper";
-import { ThunkWithCreateAsyncWrapper } from "./redux-thunk/thunk-with-createAsync/wrapper";
-import { SagaRegularReduxWrapper } from "./redux-saga/redux-regular/wrapper";
-import { ProgrammingLLC } from "./programmingLLC/wrapper";
+import { useEffect } from 'react';
 import './App.css'
+import { Medicines } from './components/Medicines';
+import { useState } from 'react';
+import { MedicineContext, initialGlobalState } from './context';
 
 function App() {
 
+  const [globalStates, setGlobalStates] = useState({ ...initialGlobalState });
+
+  const handleGlobalState = (key = '', value = '') => {
+    const tempGlobalState = { ...JSON.parse(JSON.stringify(globalStates)) };
+    tempGlobalState[key] = value;
+    setGlobalStates(tempGlobalState)
+  }
+
+  useEffect(() => {
+
+    getData(globalStates.search)
+  }, [globalStates.search])
+
+  const getData = (query) => {
+    fetch(`https://backend.cappsule.co.in/api/v1/new_search?q=${query}&pharmacyIds=1,2,3`).then(res => res.json()).then(data => {
+      console.log(data, "fdsfsafkjfsakfjshakjf");
+    })
+  }
 
   return (
-    <>
-      {/* <UseMemoExample /> */}
-      {/* <ReactDotMemo /> */}
-      {/* <UseCallBackDemo /> */}
-      {/* <ForwardRefsWrapper /> */}
-
-      <ProgrammingLLC />
-    </>
+    <MedicineContext.Provider value={{ globalStates, handleGlobalState }}>
+      <Medicines />
+    </MedicineContext.Provider>
   );
 }
 
 export default App;
-
-
-//Redux traditional
-
-function ReduxTraditional() {
-
-  return <Provider store={store}>
-    <Counter />
-  </Provider>
-}
-
-//Redux Toolkit
-
-function ReduxToolkit() {
-  return <Provider store={toolkitStore}>
-    <ToolkitCounter />
-  </Provider>
-}
-
-function UseReducerGateway() {
-  return (
-    <>
-      <UseReducerDemo />
-    </>
-  );
-}
-
-function SimpleUseReducerGateway() {
-
-  return (
-    <SimpleUseReducer />
-  )
-}
-
-function ThunkWithRegularReduxGateway() {
-  return <ThunkWithRegularRedux />
-}
-
-function ThunkWithToolkitReduxGateway() {
-  return <ThunkWithToolkitWrapper />
-}
-
-function ThunkWithToolkitReduxAndCreateAsyncGateway() {
-  return (
-    <ThunkWithCreateAsyncWrapper />
-  )
-}
-
-function SagaWithRegularRedux() {
-  return (
-    <SagaRegularReduxWrapper />
-  )
-}
